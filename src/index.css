@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 10%; /* Dark background */
+  --foreground: 0 0% 90%; /* Light text */
+  --card: 0 0% 15%; /* Darker card background */
+  --card-foreground: 0 0% 90%; /* Light text in cards */
+  --popover: 0 0% 10%; /* Dark popover background */
+  --popover-foreground: 0 0% 90%; /* Light text in popovers */
+  --primary: 0 0% 80%; /* Light primary text */
+  --primary-foreground: 0 0% 10%; /* Dark foreground for primary elements */
+  --secondary: 0 0% 90%; /* Light secondary text */
+  --secondary-foreground: 0 0% 10%; /* Dark secondary foreground */
+  --muted: 0 0% 90%; /* Muted text */
+  --muted-foreground: 0 0% 50%; /* Muted foreground */
+  --accent: 0 0% 90%; /* Accent color */
+  --accent-foreground: 0 0% 10%; /* Accent text */
+  --destructive: 0 80% 50%; /* Destructive color */
+  --destructive-foreground: 0 0% 100%; /* Light text for destructive */
+  --border: 0 0% 20%; /* Dark border */
+  --input: 0 0% 25%; /* Dark input background */
+  --ring: 0 0% 70%; /* Light ring for focus */
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 0 0% 3%; /* Almost black background */
+  --foreground: 0 0% 97%; /* Lighter text */
+  --card: 0 0% 5%; /* Very dark card background */
+  --card-foreground: 0 0% 95%; /* Lighter text in cards */
+  --popover: 0 0% 5%; /* Darker popover background */
+  --popover-foreground: 0 0% 95%; /* Lighter text in popovers */
+  --primary: 0 0% 95%; /* Lighter primary text */
+  --primary-foreground: 0 0% 5%; /* Very dark foreground for primary */
+  --secondary: 0 0% 10%; /* Slightly lighter secondary text */
+  --secondary-foreground: 0 0% 95%; /* Very light secondary text */
+  --muted: 0 0% 12%; /* Muted dark text */
+  --muted-foreground: 0 0% 70%; /* Slightly lighter muted foreground */
+  --accent: 0 0% 15%; /* Very dark accent */
+  --accent-foreground: 0 0% 95%; /* Light text for accent */
+  --destructive: 0 70% 40%; /* Destructive action color */
+  --destructive-foreground: 0 0% 100%; /* Light text for destructive */
+  --border: 0 0% 10%; /* Dark borders */
+  --input: 0 0% 20%; /* Dark input background */
+  --ring: 0 0% 80%; /* Lighter ring for focus */
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
+}
+
+
+@keyframes backgroundAnimation {
+  0% {
+    background-color: #121212; /* Very dark gray */
+  }
+  50% {
+    background-color: #1a1a1a; /* Slightly lighter dark gray */
+  }
+  100% {
+    background-color: #121212; /* Back to very dark gray */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background ;
+    animation: backgroundAnimation 6s infinite; /* Animated background transition */
+  }
+}
+
+  /* Card Styling */
+  /* .card {
+    background-color: var(--card);
+    color: var(--card-foreground);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin: 10px;
+  } */
+  .cards{
+    color: #121212 !important;
+  }
+
+ 
+ .name h2 {
+    color: hsl(0, 0%, 28%);
+    font-size: 50px;
+    font-weight: bold;
+    font-family: monospace;
+    letter-spacing: 2px;
+    cursor: pointer;
+  }
+  
+h2 span {
+    transition: 0.5s ease-out;
+  }
+h2:hover span:nth-child(1) {
+    margin-right: 2px;
+  }
+h2:hover span:nth-child(1):after {
+    content: "'";
+  }
+h2:hover span:nth-child(2) {
+    margin-left: 20px;
+  }
+h2:hover span {
+    color: #fff;
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
+  }
+
+
+/* main section card  */
+@keyframes glowCard {
+  0% {
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 15px rgba(0, 255, 0, 0.5), 0 0 15px rgba(255, 0, 255, 0.7), 0 0 10px rgba(255, 69, 0, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 15px rgba(255, 255, 255, 0.2);
+  }
+}
+
+
+/* Apply glow effect on hover */
+.hover\:animate-glow-card:hover {
+  animation: glowCard 1.5s infinite;
+}
+
+/* card animation */
+.cards {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.cards:hover img {
+  transition: transform 0.3s ease;
+}
+
+
+
